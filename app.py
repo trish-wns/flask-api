@@ -1,6 +1,12 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, render_template
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)  # Enables CORS
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/hello')
 def hello():
